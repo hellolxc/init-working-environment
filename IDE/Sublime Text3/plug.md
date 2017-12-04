@@ -1,0 +1,16 @@
+# <center> Sublime Text3配置</center>
+- codecs33
+- anaconda_php
+- convertToUTF8
+- cTags
+- DocBlockr
+- git
+- html-css-js prettify
+- openinbrowser
+- package control
+- php-grammar
+- phpcs
+- predawn
+- sublimelinter
+- sublimetmpl
+- zzz A File Icon zzz
