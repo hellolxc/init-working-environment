@@ -171,7 +171,7 @@ echo y | sudo apt-get install php-memcached
 echo y | sudo apt-get install php-xml
 echo y | sudo apt-get install php-curl
 echo y | sudo apt-get install php-xdebug
-echo y | pecl install swoole
+echo y | sudo pecl install swoole
 
 
 echo  "---------------------------安装Composer系列---------------------------------"
@@ -202,17 +202,12 @@ firefox https://github.com/geeeeeeeeek/electronic-wechat/releases
 
 
 echo "火狐浏览器插件
-	RESTED
-	Adblock Plus
+    New Tab Override
 	Firebug
-	ReloadEvery
-	Title
+	Proxy SwtichyOmega
 	User-Agent-Switcher"
 
 echo "谷歌浏览器
 	Adblock Plus
-	ApiDebug
 	Axure RP Extension for Chrome
-	EditThisCookie
-	穹顶穿越
-	RESTED"
+	EditThisCookie"
