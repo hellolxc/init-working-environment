@@ -1,11 +1,11 @@
 #!/bin/sh
 clear
-if [ `id -u` -eq 0 ];then  
-    echo "启动安装程序"  
-else  
+if [ `id -u` -eq 0 ];then
+    echo "启动安装程序"
+else
     echo "请在ROOT用户权限下运行"
     exit
-fi 
+fi
 echo "卸载软件"
 echo y | sudo apt-get remove libreoffice-common
 echo y | sudo apt-get remove unity-webapps-common
@@ -21,7 +21,7 @@ echo y | sudo apt-get install shutter
 
 echo "开始安装filezilla"
 echo y | sudo apt-get install filezilla
-d
+
 echo "开始安装vim"
 echo y | sudo apt-get install vim
 
@@ -30,6 +30,10 @@ echo y | sudo apt-get install ssh
 
 echo "开始安装Git"
 echo y | sudo apt-get install git
+
+echo "配置Git用户信息"
+git config --global user.name "LXC"
+git config --global user.email lxc_yx@139.com
 
 echo "开始安装docker"
 echo y | sudo apt-get install docker
@@ -52,9 +56,9 @@ echo y | sudo apt-get install xpad
 echo "开始安装ffmpeg"
 echo y | sudo apt-get install ffmpeg
 
-echo "开始安装obs"
-echo y | sudo add-apt-repository ppa:obsproject/obs-studio
-echo y | sudo apt-get update && sudo apt-get install obs-studio
+#echo "开始安装obs"
+#echo y | sudo add-apt-repository ppa:obsproject/obs-studio
+#echo y | sudo apt-get update && sudo apt-get install obs-studio
 
 echo "开始安装kcachegrind"
 echo y | sudo apt-get install kcachegrind
@@ -81,12 +85,18 @@ echo y | wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo 
 echo y | sudo apt-get update
 echo y | sudo apt-get install google-chrome-stable
 
+echo "安装坚果云"
+wget https://www.jianguoyun.com/static/exe/installer/ubuntu/nautilus_nutstore_amd64.deb
+sudo dpkg -i nautilus_nutstore_amd64.deb
+sudo apt-get install -f
+rm nautilus_nutstore_amd64.deb
+
 echo "------------------------------美化主题--------------------------------"
 
 echo "设置壁纸"
 wget https://github.com/hellolxc/init-working-environment/blob/master/wallpaper/1.jpg?raw=true -O 1.jpg
 gsettings set org.gnome.desktop.background picture-uri "file:`pwd`/1.jpg"
-rm 1.jpg 
+rm 1.jpg
 
 echo "安装Unity tweak tool"
 echo y | sudo apt-get install unity-tweak-tool
@@ -120,8 +130,8 @@ echo "安装Mysql-workbench"
 echo y | sudo apt-get install mysql-workbench
 
 echo "安装为知笔记"
-echo y | sudo add-apt-repository ppa:wiznote-team 
-echo y | sudo apt-get update 
+echo y | sudo add-apt-repository ppa:wiznote-team
+echo y | sudo apt-get update
 echo y | sudo apt-get install wiznote
 
 echo "安装数字雨"
@@ -137,7 +147,8 @@ sudo tar -xf linux64 -C /opt/
 
 echo "下载Atom"
 wget https://atom.io/download/deb
-sudo dpkg -i deb && sudo apt-get -f install
+sudo dpkg -i deb
+sudo apt-get install -f
 
 echo '---------------------------安装开发环境-----------------------------'
 echo "安装Nginx"

@@ -1,0 +1,31 @@
+server {
+
+        listen 80;
+        server_name myblog.com;
+        root /home/liu/www/MyBlog;
+
+        location / {
+
+            index index.php index.html;
+        }
+
+        location ~ \.php/?.*$ {
+
+                fastcgi_pass   unix:/run/php/php7.0-fpm.sock;
+                fastcgi_index  index.php;
+
+                #加载Nginx默认"服务器环境变量"配置
+                include        fastcgi.conf;
+
+                #设置PATH_INFO并改写SCRIPT_FILENAME,SCRIPT_NAME服务器环境变量
+                set $fastcgi_script_name2 $fastcgi_script_name;
+                if ($fastcgi_script_name ~ "^(.+\.php)(/.+)$") {
+                    set $fastcgi_script_name2 $1;
+                    set $path_info $2;
+                }
+
+        fastcgi_param   PATH_INFO $path_info;
+        fastcgi_param   SCRIPT_FILENAME   $document_root$fastcgi_script_name2;
+        fastcgi_param   SCRIPT_NAME   $fastcgi_script_name2;
+    }
+}
