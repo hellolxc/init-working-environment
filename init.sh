@@ -81,6 +81,13 @@ echo y | wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo 
 echo y | sudo apt-get update
 echo y | sudo apt-get install google-chrome-stable
 
+echo "------------------------------美化主题--------------------------------"
+
+echo "设置壁纸"
+wget https://github.com/hellolxc/init-working-environment/blob/master/wallpaper/1.jpg?raw=true -O 1.jpg
+gsettings set org.gnome.desktop.background picture-uri "file:`pwd`/1.jpg"
+rm 1.jpg 
+
 echo "安装Unity tweak tool"
 echo y | sudo apt-get install unity-tweak-tool
 
@@ -175,11 +182,14 @@ composer global require "laravel/lumen-installer"
 echo "安装laravel"
 composer global require "laravel/installer"
 
+
 echo "-----------------------其他软件----------------------------"
 #QQ
 firefox http://www.ubuntukylin.com/applications/showimg.php?lang=cn&id=23
 #WECHAT
 firefox https://github.com/geeeeeeeeek/electronic-wechat/releases
+
+
 echo "火狐浏览器插件
 	RESTED
 	Adblock Plus
