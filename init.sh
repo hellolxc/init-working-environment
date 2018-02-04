@@ -9,6 +9,7 @@ fi
 echo "卸载软件"
 echo y | sudo apt-get remove libreoffice-common
 echo y | sudo apt-get remove unity-webapps-common
+
 echo "更新系统"
 echo y | sudo apt-get update
 echo y | sudo apt-get upgrade
@@ -91,6 +92,20 @@ sudo dpkg -i nautilus_nutstore_amd64.deb
 sudo apt-get install -f
 rm nautilus_nutstore_amd64.deb
 
+echo "安装网易云"
+wget http://d1.music.126.net/dmusic/netease-cloud-music_1.1.0_amd64_ubuntu.deb
+sudo dpkg -i netease-cloud-music_1.1.0_amd64_ubuntu.deb
+sudo apt-get install -f
+rm netease-cloud-music_1.1.0_amd64_ubuntu.deb
+
+echo "安装flux"
+echo y | sudo add-apt-repository ppa:nathan-renniewaldock/flux
+echo y | sudo apt-get update
+echo y | sudo apt-get install fluxgui
+
+echo "安装sublime text3"
+echo y | sudo apt-get install sublime-text
+
 echo "------------------------------美化主题--------------------------------"
 
 echo "设置壁纸"
@@ -137,6 +152,15 @@ echo y | sudo apt-get install wiznote
 echo "安装数字雨"
 echo y | sudo apt-get install cmatrix
 
+echo "安装mysql命令行工具"
+echo y | sudo apt-get install mycli
+
+echo "安装Apache-jmeter压力测试工具"
+echo y | sudo apt-get install jmeter
+
+echo "安装贴纸工具"
+echo y | sudo apt-get install xpad
+
 echo "下载WPS"
 wget http://kdl.cc.ksosoft.com/wps-community/download/a21/wps-office_10.1.0.5672~a21_amd64.deb
 sudo dpkg -i wps-office_10.1.0.5672~a21_amd64.deb && sudo apt-get -f install
@@ -173,6 +197,11 @@ echo y | sudo apt-get install php-curl
 echo y | sudo apt-get install php-xdebug
 echo y | sudo pecl install swoole
 
+#下载codecept测试框架
+sudo wget http://codeception.com/codecept.phar -O /usr/bin/codecept
+#添加执行权限
+sudo chmod +x /usr/bin/codecept
+
 
 echo  "---------------------------安装Composer系列---------------------------------"
 echo "安装composer"
@@ -200,14 +229,9 @@ firefox http://www.ubuntukylin.com/applications/showimg.php?lang=cn&id=23
 #WECHAT
 firefox https://github.com/geeeeeeeeek/electronic-wechat/releases
 
+#卸载无用库
+echo y | sudo apt-get autoremove
+#清除缓存
+sudo apt-get clean
 
-echo "火狐浏览器插件
-    New Tab Override
-	Firebug
-	Proxy SwtichyOmega
-	User-Agent-Switcher"
-
-echo "谷歌浏览器
-	Adblock Plus
-	Axure RP Extension for Chrome
-	EditThisCookie"
+echo "-----------------------------------安装完成-------------------------------------"
