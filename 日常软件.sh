@@ -6,6 +6,9 @@ else
     echo "请在ROOT用户权限下运行"
     exit
 fi 
+echo "卸载软件"
+echo y | sudo apt-get remove libreoffice-common
+echo y | sudo apt-get remove unity-webapps-common
 echo "更新系统"
 echo y | sudo apt-get update
 echo y | sudo apt-get upgrade
@@ -18,7 +21,7 @@ echo y | sudo apt-get install shutter
 
 echo "开始安装filezilla"
 echo y | sudo apt-get install filezilla
-
+d
 echo "开始安装vim"
 echo y | sudo apt-get install vim
 
@@ -98,6 +101,85 @@ echo y | sudo add-apt-repository ppa:noobslab/themes
 echo y | sudo apt-get update
 echo y | sudo apt-get install flatabulous-theme
 
+echo "安装Docky"
+echo y | sudo apt-get install docky
+
+echo "安装shadowsocks客户端"
+echo y | sudo add-apt-repository ppa:hzwhuang/ss-qt5
+echo y | sudo apt-get update
+echo y | sudo apt-get install shadowsocks-qt5
+
+echo "安装Mysql-workbench"
+echo y | sudo apt-get install mysql-workbench
+
+echo "安装为知笔记"
+echo y | sudo add-apt-repository ppa:wiznote-team 
+echo y | sudo apt-get update 
+echo y | sudo apt-get install wiznote
+
+echo "安装数字雨"
+echo y | sudo apt-get install cmatrix
+
+echo "下载WPS"
+wget http://kdl.cc.ksosoft.com/wps-community/download/a21/wps-office_10.1.0.5672~a21_amd64.deb
+sudo dpkg -i wps-office_10.1.0.5672~a21_amd64.deb && sudo apt-get -f install
+
+echo "下载Postman"
+wget https://dl.pstmn.io/download/latest/linux64
+sudo tar -xf linux64 -C /opt/
+
+echo "下载Atom"
+wget https://atom.io/download/deb
+sudo dpkg -i deb && sudo apt-get -f install
+
+echo '---------------------------安装开发环境-----------------------------'
+echo "安装Nginx"
+echo y | sudo apt-get install nginx
+
+echo "安装Mysql"
+echo y | sudo apt-get install mysql-server
+
+echo "安装PHP"
+echo y | sudo apt-get install php
+
+echo '------------------------------安装PHP扩展----------------------------------'
+echo y | sudo apt install php-codesniffer
+echo y | sudo apt install php-pear
+echo y | sudo apt-get install php-zip
+echo y | sudo apt-get install php-mbstring
+echo y | sudo apt-get install php-mcrypt
+echo y | sudo apt-get install php-memcache
+echo y | sudo apt-get install php-memcached
+echo y | sudo apt-get install php-xml
+echo y | sudo apt-get install php-curl
+echo y | sudo apt-get install php-xdebug
+echo y | pecl install swoole
+
+
+echo  "---------------------------安装Composer系列---------------------------------"
+echo "安装composer"
+echo y | sudo apt-get install composer
+
+echo "配置中国镜像"
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+echo "退出ROOT权限"
+exit
+
+echo "安装PHP-FIXER"
+composer global require fabpot/php-cs-fixer
+
+echo "安装Lumen"
+composer global require "laravel/lumen-installer"
+
+echo "安装laravel"
+composer global require "laravel/installer"
+
+echo "-----------------------其他软件----------------------------"
+#QQ
+firefox http://www.ubuntukylin.com/applications/showimg.php?lang=cn&id=23
+#WECHAT
+firefox https://github.com/geeeeeeeeek/electronic-wechat/releases
 echo "火狐浏览器插件
 	RESTED
 	Adblock Plus
@@ -113,4 +195,3 @@ echo "谷歌浏览器
 	EditThisCookie
 	穹顶穿越
 	RESTED"
-
