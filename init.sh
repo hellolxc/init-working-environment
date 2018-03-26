@@ -39,9 +39,6 @@ git config --global user.email lxc_yx@139.com
 echo "开始安装docker"
 echo y | sudo apt-get install docker
 
-echo "开始安装wireshark"
-echo y | sudo apt-get install wireshark
-
 echo "开始安装psensor"
 echo y | sudo apt-get install psensor
 
@@ -74,7 +71,8 @@ echo "开始安装transmission"
 echo y | sudo apt-get install transmission
 
 echo "开始安装nodejs"
-echo y | sudo apt-get install nodejs
+echo y | curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+echo y | sudo apt-get install -y nodejs
 echo y | sudo apt-get install npm
 
 echo "开始安装ruby"
@@ -182,7 +180,7 @@ echo "安装Mysql"
 echo y | sudo apt-get install mysql-server
 
 echo "安装PHP"
-echo y | sudo apt-get install php
+echo y | sudo apt-get install php7.2
 
 echo '------------------------------安装PHP扩展----------------------------------'
 echo y | sudo apt install php-codesniffer
@@ -222,6 +220,9 @@ composer global require "laravel/lumen-installer"
 echo "安装laravel"
 composer global require "laravel/installer"
 
+echo "开始安装wireshark"
+echo y | sudo apt-get install wireshark
+
 
 echo "-----------------------其他软件----------------------------"
 #QQ
@@ -233,5 +234,7 @@ firefox https://github.com/geeeeeeeeek/electronic-wechat/releases
 echo y | sudo apt-get autoremove
 #清除缓存
 sudo apt-get clean
+
+
 
 echo "-----------------------------------安装完成-------------------------------------"
